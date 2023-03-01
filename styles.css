@@ -1,0 +1,80 @@
+* {
+  height: 100%;
+  width: 100%;
+  /* border: 1px solid red; */
+}
+
+body {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+}
+
+/* Side Sections */
+.side-sections {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 27%;
+  background-color: lightgoldenrodyellow;
+}
+
+.side-emojis {
+  height: 40px;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  font-size: xx-large;
+}
+
+.dolly-image {
+  width: 100%;
+  height: fit-content;
+}
+
+.wins {
+  height: 30px;
+  margin-top: 0px;
+}
+
+/* Mid Seciton */
+.mid-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 46%;
+  background-color: lightskyblue;
+}
+
+.mid-section-title {
+  height: 100px;
+  margin-top: 100px;
+  font-size: 250%;
+}
+
+.game-board {
+  display: flex;
+  justify-content: center;
+}
+
+.tic-tac-toe-grid {
+  display: grid;
+  gap: 0px;
+  grid-template-columns: 120px 120px 120px;
+  grid-template-rows: 120px 120px 120px;
+  width: 360px;
+  height: 360px;
+}
+
+.child {
+  border: 5px solid black;
+  border-right: none;
+  border-top: none;
+}
+
+.left-children {
+  border-left: none;
+}
+
+.bottom-children {
+  border-bottom: none;
+}
