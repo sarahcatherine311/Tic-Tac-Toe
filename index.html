@@ -4,17 +4,31 @@
     <link rel="stylesheet" href="./styles.css">
   </head>
   <body>
-    <section id="leftSide" class="side-section">
-      <p id="player1Emoji" class="side-emoji">Player 1 emoji here</p>
-      <p id="player1Wins" class="wins">Player 1 wins here</p>
+    <section id="leftSide" class="side-sections">
+      <h1 id="player1Emoji" class="side-emojis">🌈</h1>
+      <h2 id="player1Wins" class="wins">0 wins</h2>
+      <img class="dolly-image" src="assets/dolly-img.png" alt="Image of Dolly Parton with quote 'If you want the rainbow, you gotta put up with the rain'."/>
     </section>
     <section id="midSection" class="mid-section">
-      <title id="midSectionTitle" class="mid-seciton-title">It's (player emoji here)'s turn!</title>
-      <div id="ticTacToeGrid" class="tic-tac-toe-grid">grid here</div>
+      <h1 id="midSectionTitle" class="mid-section-title">It's 🌈's turn!</h1>
+      <section class="game-board">  
+        <div id="ticTacToeGrid" class="tic-tac-toe-grid">
+          <div id="child1" class="child left-children"></div>
+          <div id="child2" class="child"></div>
+          <div id="child3" class="child"></div>
+          <div id="child4" class="child left-children"></div>
+          <div id="child5" class="child"></div>
+          <div id="child6" class="child"></div>
+          <div id="child7" class="child bottom-children left-children"></div>
+          <div id="child8" class="child bottom-children"></div>
+          <div id="child9" class="child bottom-children"></div>
+        </div>
+      </section>
     </section>
-    <section id="rightSide" class="side-section">
-      <p id="player2Emoji" class="side-emoji">Player 2 emoji here</p>
-      <p id="player2Wins" class="wins">Player 2 wins here</p>
+    <section id="rightSide" class="side-sections">
+      <h1 id="player2Emoji" class="side-emojis">🤠</h1>
+      <h2 id="player2Wins" class="wins">0 wins</h2>
+      <img class="dolly-image" src="assets/dolly-img.png" alt="Image of Dolly Parton with quote 'If you want the rainbow, you gotta put up with the rain'."/>
     </section>
     <script type="text/javascript" src="player.js"></script>  
     <script type="text/javascript" src="game.js"></script>  
