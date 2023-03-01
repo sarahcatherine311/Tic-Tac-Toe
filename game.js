@@ -9,7 +9,7 @@ class Game {
       ['child7', 'child8', 'child9'],
       ['child1', 'child4', 'child7'],
       ['child2', 'child5', 'child8'],
-      ['child3', 'child6', 'child6'],
+      ['child3', 'child6', 'child9r'],
       ['child1', 'child5', 'child9'],
       ['child3', 'child5', 'child7'],
     ];
