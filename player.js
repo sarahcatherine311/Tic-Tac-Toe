@@ -6,7 +6,6 @@ class Player {
   }
 
   increaseWins() {
-    // if statement that takes in the winning conditions
     this.wins++
   }
 }
