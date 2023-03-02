@@ -9,13 +9,12 @@ class Game {
       ['child7', 'child8', 'child9'],
       ['child1', 'child4', 'child7'],
       ['child2', 'child5', 'child8'],
-      ['child3', 'child6', 'child9r'],
+      ['child3', 'child6', 'child9'],
       ['child1', 'child5', 'child9'],
       ['child3', 'child5', 'child7'],
     ];
     this.player1Choices = [];
     this.player2Choices = [];
-    this.draw = false;
   }
 
   pushPlayerChoice(token) {
@@ -30,7 +29,13 @@ class Game {
     for (var i = 0; i < boxes.length; i++) {
       boxes[i].innerText = "";
     }
-  
+    
+    if (this.turn === '🌈') {
+      this.turn = '🤠'
+    } else {
+      this.turn = '🌈'
+    }
+    
     playerTurn.innerText = `It's ${game.turn}'s turn!`;
     game.player1Choices = [];
     game.player2Choices = [];
@@ -51,7 +56,6 @@ class Game {
       } else if (boxes.every(this.determineInnerText)) {
         playerTurn.innerText = "It's a draw!";
         setTimeout(this.resetGameBoard, 2.5 * 1000);
-        this.draw = true;
       }
     }
   }
