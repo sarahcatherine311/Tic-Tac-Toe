@@ -69,6 +69,10 @@ function showPlayer2Won() {
   player2Wins.innerText = `${game.player2.wins} wins`;
 }
 
+function determineInnerText(box) {
+  return box.innerText !== ""
+}
+
 function showResult() {
   for (var i = 0; i < game.winConditions.length; i++){
     if (game.winConditions[i].every(wins => game.player1Choices.includes(wins))) {
@@ -76,6 +80,9 @@ function showResult() {
       setTimeout(emptyGameBoard, 2.5 * 1000);
     } else if (game.winConditions[i].every(wins => game.player2Choices.includes(wins))){
       showPlayer2Won();
+      setTimeout(emptyGameBoard, 2.5 * 1000);
+    } else if (boxes.every(determineInnerText)) {
+      playerTurn.innerText = "It's a draw!";
       setTimeout(emptyGameBoard, 2.5 * 1000);
     }
   }
