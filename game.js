@@ -4,14 +4,14 @@ class Game {
     this.player2 = new Player(2, '🤠');
     this.turn = '🌈';
     this.winConditions = [
-      ['child1', 'child2', 'child3'],
-      ['child4', 'child5', 'child6'],
-      ['child7', 'child8', 'child9'],
-      ['child1', 'child4', 'child7'],
-      ['child2', 'child5', 'child8'],
-      ['child3', 'child6', 'child9'],
-      ['child1', 'child5', 'child9'],
-      ['child3', 'child5', 'child7'],
+      ['box1', 'box2', 'box3'],
+      ['box4', 'box5', 'box6'],
+      ['box7', 'box8', 'box9'],
+      ['box1', 'box4', 'box7'],
+      ['box2', 'box5', 'box8'],
+      ['box3', 'box6', 'box9'],
+      ['box1', 'box5', 'box9'],
+      ['box3', 'box5', 'box7'],
     ];
     this.player1Choices = [];
     this.player2Choices = [];
@@ -35,7 +35,7 @@ class Game {
     } else {
       this.turn = '🌈'
     }
-    
+
     playerTurn.innerText = `It's ${game.turn}'s turn!`;
     game.player1Choices = [];
     game.player2Choices = [];
