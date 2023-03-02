@@ -1,8 +1,8 @@
 class Game {
   constructor() {
-    this.player1 = new Player(1, "🌈");
-    this.player2 = new Player(2, "🤠");
-    this.turn = "🌈";
+    this.player1 = new Player(1, '🌈');
+    this.player2 = new Player(2, '🤠');
+    this.turn = '🌈';
     this.winConditions = [
       ['child1', 'child2', 'child3'],
       ['child4', 'child5', 'child6'],
@@ -27,6 +27,32 @@ class Game {
   }
 
   resetGameBoard() {
-    //timeout/pause for a few seconds then game board resets
+    for (var i = 0; i < boxes.length; i++) {
+      boxes[i].innerText = "";
+    }
+  
+    playerTurn.innerText = `It's ${game.turn}'s turn!`;
+    game.player1Choices = [];
+    game.player2Choices = [];
+  }
+
+  determineInnerText(box) {
+    return box.innerText !== ""
+  }
+
+  showResult() {
+    for (var i = 0; i < this.winConditions.length; i++){
+      if (this.winConditions[i].every(wins => this.player1Choices.includes(wins))) {
+        showPlayer1Won();
+        setTimeout(this.resetGameBoard, 2.5 * 1000);
+      } else if (this.winConditions[i].every(wins => this.player2Choices.includes(wins))){
+        showPlayer2Won();
+        setTimeout(this.resetGameBoard, 2.5 * 1000);
+      } else if (boxes.every(this.determineInnerText)) {
+        playerTurn.innerText = "It's a draw!";
+        setTimeout(this.resetGameBoard, 2.5 * 1000);
+        this.draw = true;
+      }
+    }
   }
 }

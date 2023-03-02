@@ -30,31 +30,18 @@ var boxes = [box1, box2, box3, box4, box5, box6, box7, box8, box9];
 
 // Event Handlers
 function insertToken(event) {
-  if (playerTurn.innerText === "It's 🌈's turn!" && !event.target.innerText) {
+  if (game.turn === '🌈' && !event.target.innerText) {
     event.target.innerText = "🌈";
-    playerTurn.innerText = "It's 🤠's turn!"
+    game.turn = '🤠';
     game.pushPlayerChoice("🌈");
+    playerTurn.innerText = `It's ${game.turn}'s turn!`
   } else if (!event.target.innerText){
     event.target.innerText = "🤠";
-    playerTurn.innerText = "It's 🌈's turn!"
+    game.turn = '🌈';
     game.pushPlayerChoice("🤠");
+    playerTurn.innerText = `It's ${game.turn}'s turn!`
   }
-  showResult();
-}
-
-function emptyGameBoard() {
-  for (var i = 0; i < boxes.length; i++) {
-    boxes[i].innerText = "";
-  }
-  
-  if (playerTurn.innerText === "🌈 wins!") {
-    playerTurn.innerText = "It's 🤠's turn!"
-  } else {
-    playerTurn.innerText = "It's 🌈's turn!"
-  }
-
-  game.player1Choices = [];
-  game.player2Choices = [];
+  game.showResult();
 }
 
 function showPlayer1Won() {
@@ -67,23 +54,4 @@ function showPlayer2Won() {
   playerTurn.innerText = "🤠 wins!";
   game.player2.increaseWins();
   player2Wins.innerText = `${game.player2.wins} wins`;
-}
-
-function determineInnerText(box) {
-  return box.innerText !== ""
-}
-
-function showResult() {
-  for (var i = 0; i < game.winConditions.length; i++){
-    if (game.winConditions[i].every(wins => game.player1Choices.includes(wins))) {
-      showPlayer1Won();
-      setTimeout(emptyGameBoard, 2.5 * 1000);
-    } else if (game.winConditions[i].every(wins => game.player2Choices.includes(wins))){
-      showPlayer2Won();
-      setTimeout(emptyGameBoard, 2.5 * 1000);
-    } else if (boxes.every(determineInnerText)) {
-      playerTurn.innerText = "It's a draw!";
-      setTimeout(emptyGameBoard, 2.5 * 1000);
-    }
-  }
 }
