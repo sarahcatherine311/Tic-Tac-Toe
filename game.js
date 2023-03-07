@@ -13,16 +13,18 @@ class Game {
       ['box1', 'box5', 'box9'],
       ['box3', 'box5', 'box7'],
     ];
-    this.player1Choices = [];
-    this.player2Choices = [];
   }
 
   pushPlayerChoice(token) {
     if (token === this.player1.token) {
-      this.player1Choices.push(event.target.id);
+      this.player1.choices.push(event.target.id);
     } else {
-      this.player2Choices.push(event.target.id);
+      this.player2.choices.push(event.target.id);
     }
+  }
+
+  changePlayerTurn (token) {
+    game.turn = token;
   }
 
   resetGameBoard() {
@@ -31,26 +33,28 @@ class Game {
     }
     
     if (this.turn === '🌈') {
-      this.turn = '🤠'
+      this.turn = '🤠';
     } else {
-      this.turn = '🌈'
+      this.turn = '🌈';
     }
 
     playerTurn.innerText = `It's ${game.turn}'s turn!`;
-    game.player1Choices = [];
-    game.player2Choices = [];
+    game.player1.choices = [];
+    game.player2.choices = [];
   }
 
   determineInnerText(box) {
-    return box.innerText !== ""
+    return box.innerText !== "";
   }
 
   showResult() {
     for (var i = 0; i < this.winConditions.length; i++){
-      if (this.winConditions[i].every(wins => this.player1Choices.includes(wins))) {
+      if (this.winConditions[i].every(wins => this.player1.choices.includes(wins))) {
+        game.player1.increaseWins();
         showPlayer1Won();
         setTimeout(this.resetGameBoard, 2.5 * 1000);
-      } else if (this.winConditions[i].every(wins => this.player2Choices.includes(wins))){
+      } else if (this.winConditions[i].every(wins => this.player2.choices.includes(wins))){
+        game.player2.increaseWins();
         showPlayer2Won();
         setTimeout(this.resetGameBoard, 2.5 * 1000);
       } else if (boxes.every(this.determineInnerText)) {

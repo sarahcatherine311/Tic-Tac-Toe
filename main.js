@@ -32,12 +32,12 @@ var boxes = [box1, box2, box3, box4, box5, box6, box7, box8, box9];
 function insertToken(event) {
   if (game.turn === '🌈' && !event.target.innerText) {
     event.target.innerText = "🌈";
-    game.turn = '🤠';
+    game.changePlayerTurn('🤠');
     game.pushPlayerChoice("🌈");
     playerTurn.innerText = `It's ${game.turn}'s turn!`
   } else if (!event.target.innerText){
     event.target.innerText = "🤠";
-    game.turn = '🌈';
+    game.changePlayerTurn('🌈');
     game.pushPlayerChoice("🤠");
     playerTurn.innerText = `It's ${game.turn}'s turn!`
   }
@@ -46,12 +46,10 @@ function insertToken(event) {
 
 function showPlayer1Won() {
   playerTurn.innerText = "🌈 wins!";
-  game.player1.increaseWins();
   player1Wins.innerText = `${game.player1.wins} wins`;
 }
 
 function showPlayer2Won() {
   playerTurn.innerText = "🤠 wins!";
-  game.player2.increaseWins();
   player2Wins.innerText = `${game.player2.wins} wins`;
 }
