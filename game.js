@@ -53,12 +53,14 @@ class Game {
         game.player1.increaseWins();
         showPlayer1Won();
         setTimeout(this.resetGameBoard, 2.5 * 1000);
+        return;
       } else if (this.winConditions[i].every(wins => this.player2.choices.includes(wins))){
         game.player2.increaseWins();
         showPlayer2Won();
         setTimeout(this.resetGameBoard, 2.5 * 1000);
+        return;
       } else if (boxes.every(this.determineInnerText)) {
-        playerTurn.innerText = "It's a draw!";
+        showDraw();
         setTimeout(this.resetGameBoard, 2.5 * 1000);
       }
     }
